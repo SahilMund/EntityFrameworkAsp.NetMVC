@@ -10,6 +10,7 @@ using Assignment1_EntityFrameworkAsp.NetMVC.Models;
 
 namespace Assignment1_EntityFrameworkAsp.NetMVC.Controllers
 {
+    [Authorize]
     public class CoursesController : Controller
     {
         private Entities db = new Entities();

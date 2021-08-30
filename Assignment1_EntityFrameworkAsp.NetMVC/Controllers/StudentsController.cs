@@ -10,11 +10,13 @@ using Assignment1_EntityFrameworkAsp.NetMVC.Models;
 
 namespace Assignment1_EntityFrameworkAsp.NetMVC.Controllers
 {
+    [Authorize]
     public class StudentsController : Controller
     {
         private Entities db = new Entities();
 
         // GET: Students
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var students = db.Students.Include(s => s.Course);
