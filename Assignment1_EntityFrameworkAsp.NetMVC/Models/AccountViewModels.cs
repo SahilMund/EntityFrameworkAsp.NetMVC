@@ -50,9 +50,11 @@ namespace Assignment1_EntityFrameworkAsp.NetMVC.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        
+        public string UserName { get; set; }
+
+
 
         [Required]
         [DataType(DataType.Password)]
@@ -85,6 +87,16 @@ namespace Assignment1_EntityFrameworkAsp.NetMVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name ="User Role")]
+        public string UserRole { get; set; }
+
+        [Required]
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+
+
     }
 
     public class ResetPasswordViewModel

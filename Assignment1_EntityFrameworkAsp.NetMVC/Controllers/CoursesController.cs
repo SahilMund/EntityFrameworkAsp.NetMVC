@@ -10,12 +10,13 @@ using Assignment1_EntityFrameworkAsp.NetMVC.Models;
 
 namespace Assignment1_EntityFrameworkAsp.NetMVC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Staff,Admin,SuperVisor")]
     public class CoursesController : Controller
     {
         private Entities db = new Entities();
 
         // GET: Courses
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Courses.ToList());
@@ -36,6 +37,7 @@ namespace Assignment1_EntityFrameworkAsp.NetMVC.Controllers
             return View(course);
         }
 
+        [AllowAnonymous]
         public ActionResult StudentDetails(int? id)
         {
             if (id == null)
