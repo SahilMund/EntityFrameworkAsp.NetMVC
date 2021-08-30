@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Assignment1_EntityFrameworkAsp.NetMVC.Models.Student>
+
+@{
+    ViewBag.Title = "StudentDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Details of Students enrolled in @TempData["course"] Course</h2>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h4> Teacher Details:-</h4>
+
+        <table class="table">
+            <tr>
+                <th>
+                    <h6> Teacher name</h6>
+                </th>
+            </tr>
+            @foreach (var item in ViewData["staff"] as List<string>)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <div class="col-md-6">
+
+        <h4> Stdent Details:-</h4>
+
+        <table class="table">
+            <tr>
+                <th>
+                    <h6> Student Id </h6>
+                </th>
+                <th>
+                    <h6> Student Name</h6>
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
